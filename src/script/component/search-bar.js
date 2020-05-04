@@ -39,7 +39,6 @@ class SearchBar extends HTMLElement {
                 top: 10px;
                 background-color: white;
             }
-        
             .search-container > input {
                 width: 75%;
                 padding: 16px;
@@ -47,21 +46,17 @@ class SearchBar extends HTMLElement {
                 border-bottom: 1px solid cornflowerblue;
                 font-weight: bold;
             }
-        
             .search-container > input:focus {
                 outline: 0;
                 border-bottom: 2px solid cornflowerblue;
             }
-        
             .search-container > input:focus::placeholder {
                 font-weight: bold;
             }
-        
             .search-container >  input::placeholder {
                 color: cornflowerblue;
                 font-weight: normal;
             }
-        
             .search-container > button {
                 width: 23%;
                 cursor: pointer;
@@ -72,18 +67,15 @@ class SearchBar extends HTMLElement {
                 border: 0;
                 text-transform: uppercase;
             }
-        
             @media screen and (max-width: 550px){
                 .search-container {
                     flex-direction: column;
                     position: static;
                 }
-        
                 .search-container > input {
                     width: 100%;
                     margin-bottom: 12px;
                 }
-        
                 .search-container > button {
                     width: 100%;
                 }

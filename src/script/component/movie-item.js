@@ -30,22 +30,18 @@ class MovieItem extends HTMLElement {
                     border-radius: 10px;
                     overflow: hidden;
                 }
-               
                 .fan-art-movie {
                     width: 100%;
                     max-height: 300px;
                     object-fit: cover;
                     object-position: center;
                 }
-               
                 .movie-info {
                     padding: 24px;
                 }
-               
                 .movie-info > h2 {
                     font-weight: lighter;
                 }
-               
                 .movie-info > p {
                     margin-top: 10px;
                     overflow: hidden;
