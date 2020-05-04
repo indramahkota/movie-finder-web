@@ -1,12 +1,12 @@
 class DataSource {
-    static searchClub(keyword) {
-        return fetch(`https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${keyword}`)
+    static searchMovie(keyword) {
+        return fetch(`https://api.themoviedb.org/3/search/movie?api_key=0baf2c567988149d686a1289304f46cb&query=${keyword}`)
         .then(response => {
             return response.json();
         })
         .then(responseJson => {
-            if(responseJson.teams) {
-                return Promise.resolve(responseJson.teams);
+            if(responseJson.results) {
+                return Promise.resolve(responseJson.results);
             } else {
                 return Promise.reject(`${keyword} is not found`);
             }

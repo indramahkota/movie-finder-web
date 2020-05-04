@@ -8,13 +8,22 @@ class SearchBar extends HTMLElement {
         this.render();
     }
 
+    set keyUpEvent(event) {
+        this._keyUpEvent = event;
+        this.render();
+    }
+
     set clickEvent(event) {
         this._clickEvent = event;
         this.render();
     }
 
-    get value() {
-        return this.shadowDOM.querySelector("#searchElement").value;
+    get clickButton() {
+        return this.shadowDOM.querySelector("#searchButtonElement");
+    }
+
+    get searchQuery() {
+        return this.shadowDOM.querySelector("#searchInputElement").value;
     }
 
     render() {
@@ -81,10 +90,11 @@ class SearchBar extends HTMLElement {
             }
             </style>
             <div id="search-container" class="search-container">
-                <input placeholder="Search football club" id="searchElement" type="search">
+                <input id="searchInputElement" placeholder="Search movie" id="searchElement" type="search">
                 <button id="searchButtonElement" type="submit">Search</button>
             </div>`;
 
+        this.shadowDOM.querySelector("#searchInputElement").addEventListener("keyup", this._keyUpEvent);
         this.shadowDOM.querySelector("#searchButtonElement").addEventListener("click", this._clickEvent);
     }
 }

@@ -1,11 +1,17 @@
-class ClubItem extends HTMLElement {
+class MovieItem extends HTMLElement {
     constructor() {
         super();
         this.shadowDOM = this.attachShadow({ mode: "open" });
     }
 
-    set club(club) {
-        this._club = club;
+    set movie(movie) {
+        
+        if(movie.backdrop_path === null) {
+            movie.backdrop_path = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
+        } else {
+            movie.backdrop_path = `https://image.tmdb.org/t/p/w500//${movie.backdrop_path}`;
+        }
+        this._movie = movie;
         this.render();
     }
 
@@ -25,22 +31,22 @@ class ClubItem extends HTMLElement {
                     overflow: hidden;
                 }
                
-                .fan-art-club {
+                .fan-art-movie {
                     width: 100%;
                     max-height: 300px;
                     object-fit: cover;
                     object-position: center;
                 }
                
-                .club-info {
+                .movie-info {
                     padding: 24px;
                 }
                
-                .club-info > h2 {
+                .movie-info > h2 {
                     font-weight: lighter;
                 }
                
-                .club-info > p {
+                .movie-info > p {
                     margin-top: 10px;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -49,12 +55,12 @@ class ClubItem extends HTMLElement {
                     -webkit-line-clamp: 10; /* number of lines to show */
                 }
             </style>
-            <img class="fan-art-club" src="${this._club.strTeamBadge}" alt="Fan Art">
-            <div class="club-info">
-                <h2>${this._club.strTeam}</h2>
-                <p>${this._club.strDescriptionEN}</p>
+            <img class="fan-art-movie" src="${this._movie.backdrop_path}" alt="Fan Art">
+            <div class="movie-info">
+                <h2>${this._movie.title}</h2>
+                <p>${this._movie.overview}</p>
             </div>`;
     }
 }
 
-customElements.define("club-item", ClubItem);
+customElements.define("movie-item", MovieItem);

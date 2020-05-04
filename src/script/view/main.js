@@ -1,29 +1,47 @@
-import '../component/club-list.js';
+import '../component/movie-list.js';
 import '../component/search-bar.js';
 import DataSource from '../data/data-source.js';
 
 const main = () => {
     const searchElement = document.querySelector("search-bar");
-    const clubListElement = document.querySelector("club-list");
+    const movieListElement = document.querySelector("movie-list");
 
-    const onButtonSearchClicked = async () => {
+    const checkQuery = (value) => {
+        if(value === null || value === "") {
+            fallbackResult("Please type query");
+        } else {
+            getMovieData(value)
+        }
+    }
+
+    const getMovieData = async (value) => {
         try {
-            const result = await DataSource.searchClub(searchElement.value);
+            const result = await DataSource.searchMovie(value);
             renderResult(result);
         } catch (message) {
-            fallbackResult(message)
+            fallbackResult(message);
+        }
+    }
+
+    const onButtonSearchClicked = () => checkQuery(searchElement.searchQuery);
+
+    const onButtonSearchEntered = event => {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            checkQuery(searchElement.searchQuery);
         }
     };
 
     const renderResult = results => {
-        clubListElement.clubs = results;
+        movieListElement.movies = results;
     };
 
     const fallbackResult = message => {
-        clubListElement.renderError(message);
+        movieListElement.renderError(message);
     };
 
     searchElement.clickEvent = onButtonSearchClicked;
+    searchElement.keyUpEvent = onButtonSearchEntered;
 };
 
 export default main;
