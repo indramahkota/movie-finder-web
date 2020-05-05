@@ -1,3 +1,9 @@
+import bgprofileImg from '../../images/bgprofile.png';
+import homeImg from '../../images/home.png';
+import indraImg from '../../images/indra.png';
+import infoImg from '../../images/info.png';
+import logoutImg from '../../images/logout.png';
+import settingsImg from '../../images/settings.png';
 class SideBar extends HTMLElement {
 
     constructor() {
@@ -118,30 +124,30 @@ class SideBar extends HTMLElement {
         </style>
         <div id="overlay" class="active"></div>
         <div id="sidebar" class="active">
-            <div class="sidebar-header" style="background-image: url(../images/bgprofile.webp)">
+            <div class="sidebar-header" style="background-image: url(${bgprofileImg})">
             <div class="sidebar-image">
-                <img src="../images/indra.webp" alt="profile" height="50" width="50">
+                <img src="${indraImg}" alt="profile" height="50" width="50">
                 <p id="profil_nama" class="nama">Indra Mahkota</p>
                 <p id="profil_email" class="email">indramahkota1@gmail.com</p>
             </div>
             </div>
             <div class="menusatu">
             <a id="target1" class="aktif">
-                <img src="../images/home.webp" alt="home" height="20" width="20">
+                <img src="${homeImg}" alt="home" height="20" width="20">
                 Halaman Utama
             </a>
             <a id="target2">
-                <img src="../images/settings.webp" alt="settings" height="20" width="20">
+                <img src="${settingsImg}" alt="settings" height="20" width="20">
                 Pengaturan
             </a>
             <a id="target3">
-                <img src="../images/info.webp" alt="info" height="20" width="20">
+                <img src="${infoImg}" alt="info" height="20" width="20">
                 Tentang
             </a>
             </div>
             <div id="tombolkeluar" class="menudua">
             <a class="aktif">
-                <img src="../images/logout.webp" alt="logout" height="20" width="20">
+                <img src="${logoutImg}" alt="logout" height="20" width="20">
                 Keluar
             </a>
             </div>

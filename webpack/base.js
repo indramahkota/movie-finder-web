@@ -1,11 +1,17 @@
 const path = require("path");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    index: './src/index.js',
+    main: './src/script/view/main.js',
+    settings: './src/script/view/settings.js',
+    about: './src/script/view/about.js'
+  },
   output: {
     path: path.resolve(__dirname, "../dist"),
-    filename: "bundle.js",
+    filename: "[name].[contenthash].js",
   },
   mode: "development",
   devtool: "eval-source-map",
@@ -14,13 +20,36 @@ module.exports = {
       {
         test: /\.css$/,
         use: [{ loader: "style-loader" }, { loader: "css-loader" }]
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[contenthash].[ext]',
+            },
+          },
+        ],
+      },
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/template.html",
-      filename: "index.html"
+      filename: "index.html",
+      chunks: ['index', 'main']
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/template.html",
+      filename: "settings.html",
+      chunks: ['settings']
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/template.html",
+      filename: "about.html",
+      chunks: ['about']
     })
   ]
 };
