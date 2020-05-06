@@ -4,6 +4,8 @@ import DataSource from '../data/data-source.js';
 
 const main = () => {
     const mainElement = document.querySelector("main");
+    mainElement.innerHTML = "";
+    
     const searchElement = document.createElement("search-bar");
     const movieListElement = document.createElement("movie-list");
     mainElement.appendChild(searchElement);

@@ -31,9 +31,9 @@ class MovieList extends HTMLElement {
     render() {
         this.shadowDOM.innerHTML = "";
         this._movies.forEach(movie => {
-            const clubItemElement = document.createElement("movie-item");
-            clubItemElement.movie = movie
-            this.shadowDOM.appendChild(clubItemElement);
+            const movieItemElement = document.createElement("movie-item");
+            movieItemElement.movie = movie
+            this.shadowDOM.appendChild(movieItemElement);
         })
     }
 }

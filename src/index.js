@@ -39,7 +39,7 @@ target3.addEventListener("click", () => {
 });
 
 target4.addEventListener("click", () => {
-    alert("Hanya contoh");
+    alert("Keluar");
 });
 
 const setClasNameForTargetButton = target => {
