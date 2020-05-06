@@ -2,10 +2,16 @@ class AppBar extends HTMLElement {
 
     constructor() {
         super();
+        this._textMenu = "Movie Finder";
         this.shadowDOM = this.attachShadow({ mode: "open" });
     }
 
     connectedCallback() {
+        this.render();
+    }
+
+    set textMenu(text) {
+        this._textMenu = text;
         this.render();
     }
 
@@ -36,7 +42,10 @@ class AppBar extends HTMLElement {
                 cursor: pointer;
             }
         </style>
-        <h2><span id="menuButton">☰ </span>Movie Finder</h2>`;
+        <h2>
+        <span id="menuButton">☰ </span>
+        <span id="menuText">${this._textMenu}</span>
+        </h2>`;
 
         this.shadowDOM.querySelector("#menuButton").addEventListener("click", this._menuClickEvent);
     }

@@ -4,10 +4,10 @@ import DataSource from '../data/data-source.js';
 
 const main = () => {
     const mainElement = document.querySelector("main");
-    mainElement.innerHTML = "<search-bar></search-bar><movie-list></movie-list>";
-
-    const searchElement = document.querySelector("search-bar");
-    const movieListElement = document.querySelector("movie-list");
+    const searchElement = document.createElement("search-bar");
+    const movieListElement = document.createElement("movie-list");
+    mainElement.appendChild(searchElement);
+    mainElement.appendChild(movieListElement);
 
     const checkQuery = (value) => {
         if (window.navigator.onLine) {
@@ -70,4 +70,4 @@ const main = () => {
     getMovieData();
 };
 
-document.addEventListener("DOMContentLoaded", main);
+export default main;

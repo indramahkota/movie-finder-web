@@ -4,10 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: './src/index.js',
-    main: './src/script/view/main.js',
-    settings: './src/script/view/settings.js',
-    about: './src/script/view/about.js'
+    index: './src/index.js'
   },
   output: {
     path: path.resolve(__dirname, "../dist"),
@@ -35,21 +32,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/template.html",
-      filename: "index.html",
-      chunks: ['index', 'main']
-    }),
-    new HtmlWebpackPlugin({
-      template: "./src/template.html",
-      filename: "settings.html",
-      chunks: ['settings']
-    }),
-    new HtmlWebpackPlugin({
-      template: "./src/template.html",
-      filename: "about.html",
-      chunks: ['about']
+      filename: "index.html"
     })
   ]
 };
