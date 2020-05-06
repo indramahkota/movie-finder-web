@@ -20,9 +20,6 @@ module.exports = merge(base, {
       })
     ]
   },
-  plugins: [
-    new CleanWebpackPlugin()
-  ],
   module: {
     rules: [
       {
