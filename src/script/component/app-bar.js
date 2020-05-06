@@ -9,6 +9,11 @@ class AppBar extends HTMLElement {
         this.render();
     }
 
+    set menuClickEvent(event) {
+        this._menuClickEvent = event;
+        this.render();
+    }
+
     render() {
         this.shadowDOM.innerHTML = `
         <style>
@@ -27,8 +32,13 @@ class AppBar extends HTMLElement {
             h2 {
                 padding: 16px;
             }
+            #menuButton {
+                cursor: pointer;
+            }
         </style>
-        <h2>Movie Finder</h2>`;
+        <h2><span id="menuButton">☰ </span>Movie Finder</h2>`;
+
+        this.shadowDOM.querySelector("#menuButton").addEventListener("click", this._menuClickEvent);
     }
 }
 

@@ -10,19 +10,27 @@ const main = () => {
     const movieListElement = document.querySelector("movie-list");
 
     const checkQuery = (value) => {
-        if (value === null || value === "") {
-            fallbackResult("Please type query");
+        if (window.navigator.onLine) {
+            if (value === null || value === "") {
+                fallbackResult("Please type query");
+            } else {
+                searchMovieWithQuery(value)
+            }
         } else {
-            searchMovieWithQuery(value)
+            fallbackResult("No internet");
         }
     }
 
     const searchMovieWithQuery = async (value) => {
-        try {
-            const result = await DataSource.searchMovie(value);
-            renderResult(result);
-        } catch (message) {
-            fallbackResult(message);
+        if (window.navigator.onLine) {
+            try {
+                const result = await DataSource.searchMovie(value);
+                renderResult(result);
+            } catch (message) {
+                fallbackResult(message);
+            }
+        } else {
+            fallbackResult("No internet");
         }
     }
 
@@ -47,11 +55,15 @@ const main = () => {
     searchElement.keyUpEvent = onButtonSearchEntered;
 
     const getMovieData = async () => {
-        try {
-            const result = await DataSource.discoverMovie();
-            renderResult(result);
-        } catch (message) {
-            fallbackResult(message);
+        if (window.navigator.onLine) {
+            try {
+                const result = await DataSource.discoverMovie();
+                renderResult(result);
+            } catch (message) {
+                fallbackResult(message);
+            }
+        } else {
+            fallbackResult("No internet");
         }
     }
 

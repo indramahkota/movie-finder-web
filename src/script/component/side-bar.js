@@ -6,17 +6,45 @@ import logoutImg from '../../images/logout.png';
 import settingsImg from '../../images/settings.png';
 class SideBar extends HTMLElement {
 
-    constructor() {
-        super();
-        this.shadowDOM = this.attachShadow({ mode: "open" });
-    }
+  constructor() {
+    super();
+    this._clientX = 0;
+    this._closeSide = true;
+    this.shadowDOM = this.attachShadow({ mode: "open" });
+  }
 
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this.shadowDOM.innerHTML = `
+  get boolCloseSide() {
+    return this._closeSide;
+  }
+
+  openSideBar() {
+    this._closeSide = false;
+    if (this._sideBar.className.split(" ").indexOf("active") == -1) {
+      this._sideBar.style.left = "0px";
+      this._sideBar.className += " active";
+      this._overlay.className += " active";
+    }
+  }
+
+  closeSideBar() {
+    this._closeSide = true;
+    if (this._sideBar.className.split(" ").indexOf("active") > -1) {
+      this._sideBar.style.left = "-250px";
+      setTimeout(() => this.removeOverlay(), 350);
+    }
+  }
+
+  removeOverlay() {
+    this._overlay.classList.remove("active");
+    this._sideBar.classList.remove("active");
+  };
+
+  render() {
+    this.shadowDOM.innerHTML = `
         <style>
         * {
             margin: 0;
@@ -122,8 +150,8 @@ class SideBar extends HTMLElement {
             opacity: 0;
           }          
         </style>
-        <div id="overlay" class="active"></div>
-        <div id="sidebar" class="active">
+        <div id="overlay"></div>
+        <div id="sidebar">
             <div class="sidebar-header" style="background-image: url(${bgprofileImg})">
             <div class="sidebar-image">
                 <img src="${indraImg}" alt="profile" height="50" width="50">
@@ -152,7 +180,48 @@ class SideBar extends HTMLElement {
             </a>
             </div>
         </div>`;
-    }
+
+    this._sideBar = this.shadowDOM.querySelector("#sidebar");
+    this._overlay = this.shadowDOM.querySelector("#overlay");
+
+    this._overlay.addEventListener("click", () => {
+      this._closeSide = true;
+      if (this._sideBar.className.split(" ").indexOf("active") > -1) {
+        this._sideBar.style.left = "-250px";
+        setTimeout(() => this.removeOverlay(), 350);
+      }
+    });
+
+    this._overlay.addEventListener("touchstart", e => {
+      this._closeSide = false;
+      this._sideBar.style.transition = "0s";
+      this._clientX = e.touches[0].clientX;
+    }, {
+      passive: true
+    });
+
+    this._overlay.addEventListener("touchmove", e => {
+      let delta = e.changedTouches[0].clientX - this._clientX;
+      if (delta <= 0) this._sideBar.style.left = delta + "px";
+    }, {
+      passive: true
+    });
+
+    this._overlay.addEventListener("touchend", () => {
+      this._closeSide = true;
+      this._sideBar.style.transition = "all 0.3s";
+      const num = parseFloat(this._sideBar.style.left);
+      if (this._sideBar.className.split(" ").indexOf("active") > -1) {
+        if (num > -125 && num < 0) this._sideBar.style.left = "0px";
+        else {
+          this._sideBar.style.left = "-250px";
+          setTimeout(() => this.removeOverlay(), 350);
+        }
+      }
+    }, {
+      passive: true
+    });
+  }
 }
 
 customElements.define("side-bar", SideBar);
