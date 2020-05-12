@@ -6,48 +6,48 @@ import main from "./script/view/main.js";
 import settings from "./script/view/settings.js";
 import about from "./script/view/about.js";
 
-const sideBarElement = document.querySelector("side-bar");
-const appBarElement = document.querySelector("app-bar");
-appBarElement.menuClickEvent = () => {
-    sideBarElement.openSideBar();
+const sidebar = document.querySelector("side-bar");
+const appbar = document.querySelector("app-bar");
+appbar.menuClickEvent = () => {
+    sidebar.openSideBar();
 };
 
-const target1 = sideBarElement.target1;
-const target2 = sideBarElement.target2;
-const target3 = sideBarElement.target3;
-const target4 = sideBarElement.target4;
+const dashboardBtn = sidebar.target1;
+const settingBtn = sidebar.target2;
+const aboutBtn = sidebar.target3;
+const exitBtn = sidebar.target4;
 
-target1.addEventListener("click", () => {
+dashboardBtn.addEventListener("click", () => {
     main();
-    sideBarElement.closeSideBar();
-    appBarElement.textMenu = "Movie Finder";
-    setClasNameForTargetButton(target1);
+    sidebar.closeSideBar();
+    appbar.textMenu = "Movie Finder";
+    setClasNameForTargetButton(dashboardBtn);
 });
 
-target2.addEventListener("click", () => {
+settingBtn.addEventListener("click", () => {
     settings();
-    sideBarElement.closeSideBar();
-    appBarElement.textMenu = "Pengaturan";
-    setClasNameForTargetButton(target2);
+    sidebar.closeSideBar();
+    appbar.textMenu = "Pengaturan";
+    setClasNameForTargetButton(settingBtn);
 });
 
-target3.addEventListener("click", () => {
+aboutBtn.addEventListener("click", () => {
     about();
-    sideBarElement.closeSideBar();
-    appBarElement.textMenu = "Tentang";
-    setClasNameForTargetButton(target3);
+    sidebar.closeSideBar();
+    appbar.textMenu = "Tentang";
+    setClasNameForTargetButton(aboutBtn);
 });
 
-target4.addEventListener("click", () => {
+exitBtn.addEventListener("click", () => {
     alert("Keluar");
 });
 
 const setClasNameForTargetButton = target => {
-    target1.classList.remove("aktif");
-    target2.classList.remove("aktif");
-    target3.classList.remove("aktif");
+    dashboardBtn.classList.remove("aktif");
+    settingBtn.classList.remove("aktif");
+    exitBtn.classList.remove("aktif");
 
-    if (target.className.split(" ").indexOf("aktif") == -1) {
+    if (target.className.split(" ").indexOf("aktif") === -1) {
         target.className += " aktif";
     }
 };

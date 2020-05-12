@@ -1,9 +1,9 @@
-import bgprofileImg from '../../images/bgprofile.png';
-import homeImg from '../../images/home.png';
-import indraImg from '../../images/indra.png';
-import infoImg from '../../images/info.png';
-import logoutImg from '../../images/logout.png';
-import settingsImg from '../../images/settings.png';
+import bgprofileImg from '../../images/menu/bg_profile.png';
+import homeImg from '../../images/menu/home.png';
+import indraImg from '../../images/menu/indra.png';
+import infoImg from '../../images/menu/info.png';
+import logoutImg from '../../images/menu/logout.png';
+import settingsImg from '../../images/menu/settings.png';
 class SideBar extends HTMLElement {
 
   constructor() {
@@ -39,8 +39,8 @@ class SideBar extends HTMLElement {
 
   openSideBar() {
     this._closeSide = false;
-    if (this._sideBar.className.split(" ").indexOf("active") == -1) {
-      this._sideBar.style.left = "0px";
+    if (this._sideBar.className.split(" ").indexOf("active") === -1) {
+      this._sideBar.style.left = "0";
       this._sideBar.className += " active";
       this._overlay.className += " active";
     }
@@ -75,7 +75,7 @@ class SideBar extends HTMLElement {
         box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
       }
       #sidebar.active {
-        left: 0px;
+        left: 0;
       }
       #sidebar a {
         display: flex;
@@ -220,7 +220,7 @@ class SideBar extends HTMLElement {
       this._sideBar.style.transition = "all 0.3s";
       const num = parseFloat(this._sideBar.style.left);
       if (this._sideBar.className.split(" ").indexOf("active") > -1) {
-        if (num > -125 && num < 0) this._sideBar.style.left = "0px";
+        if (num > -125 && num < 0) this._sideBar.style.left = "0";
         else {
           this._sideBar.style.left = "-250px";
           setTimeout(() => this.removeOverlay(), 350);

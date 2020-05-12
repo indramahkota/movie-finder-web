@@ -3,13 +3,13 @@ import '../component/search-bar.js';
 import DataSource from '../data/data-source.js';
 
 const main = () => {
-    const mainElement = document.querySelector("main");
-    mainElement.innerHTML = "";
+    const main = document.querySelector("main");
+    main.innerHTML = "";
     
-    const searchElement = document.createElement("search-bar");
-    const movieListElement = document.createElement("movie-list");
-    mainElement.appendChild(searchElement);
-    mainElement.appendChild(movieListElement);
+    const searchBar = document.createElement("search-bar");
+    const movieList = document.createElement("movie-list");
+    main.appendChild(searchBar);
+    main.appendChild(movieList);
 
     const checkQuery = (value) => {
         if (window.navigator.onLine) {
@@ -36,25 +36,25 @@ const main = () => {
         }
     }
 
-    const onButtonSearchClicked = () => checkQuery(searchElement.searchQuery);
+    const onButtonSearchClicked = () => checkQuery(searchBar.searchQuery);
 
     const onButtonSearchEntered = event => {
         if (event.keyCode === 13) {
             event.preventDefault();
-            checkQuery(searchElement.searchQuery);
+            checkQuery(searchBar.searchQuery);
         }
     };
 
     const renderResult = results => {
-        movieListElement.movies = results;
+        movieList.movies = results;
     };
 
     const fallbackResult = message => {
-        movieListElement.renderError(message);
+        movieList.renderError(message);
     };
 
-    searchElement.clickEvent = onButtonSearchClicked;
-    searchElement.keyUpEvent = onButtonSearchEntered;
+    searchBar.clickEvent = onButtonSearchClicked;
+    searchBar.keyUpEvent = onButtonSearchEntered;
 
     const getMovieData = async () => {
         if (window.navigator.onLine) {
