@@ -1,5 +1,9 @@
-import '../component/movie-list.js';
-import '../component/search-bar.js';
+// movie-list component
+import '../component/movie-list';
+
+// search-bar component
+import '../component/search-bar';
+
 import DataSource from '../data/data-source.js';
 
 const main = () => {
@@ -7,8 +11,9 @@ const main = () => {
     main.innerHTML = "";
     
     const searchBar = document.createElement("search-bar");
-    const movieList = document.createElement("movie-list");
     main.appendChild(searchBar);
+
+    const movieList = document.createElement("movie-list");
     main.appendChild(movieList);
 
     const checkQuery = (value) => {

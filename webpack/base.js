@@ -14,9 +14,21 @@ module.exports = {
   devtool: "eval-source-map",
   module: {
     rules: [
+      /* rules component style */
       {
-        test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
+        test: /\.css$/i,
+        exclude: /styles/,
+        use: ["to-string-loader", "css-loader"]
+      },
+      /* rules global style */
+      {
+        test: /\.css$/i,
+        include: /styles/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.html$/i,
+        use: ["html-loader"]
       },
       {
         test: /\.(png|jpe?g|gif)$/i,

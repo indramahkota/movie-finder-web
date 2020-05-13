@@ -1,7 +1,15 @@
 import "regenerator-runtime";
 import "./styles/style.css";
-import "./script/component/app-bar.js";
-import "./script/component/side-bar.js";
+
+// app-bar component
+import "./script/component/app-bar";
+
+// card-item component
+import "./script/component/card-item";
+
+// side-bar component
+import "./script/component/side-bar";
+
 import main from "./script/view/main.js";
 import settings from "./script/view/settings.js";
 import about from "./script/view/about.js";
@@ -45,7 +53,7 @@ exitBtn.addEventListener("click", () => {
 const setClasNameForTargetButton = target => {
     dashboardBtn.classList.remove("aktif");
     settingBtn.classList.remove("aktif");
-    exitBtn.classList.remove("aktif");
+    aboutBtn.classList.remove("aktif");
 
     if (target.className.split(" ").indexOf("aktif") === -1) {
         target.className += " aktif";
