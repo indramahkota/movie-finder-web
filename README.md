@@ -1,1 +1,2 @@
 # Club Finder (Webpack, Js)
+[![GitHub](https://img.shields.io/github/license/indramahkota/webpack-js-club-finder?color=blue)](https://github.com/indramahkota/webpack-js-club-finder/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/indramahkota/webpack-js-club-finder)](https://github.com/indramahkota/webpack-js-club-finder/stargazers)  [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
