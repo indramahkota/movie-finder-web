@@ -8,6 +8,9 @@
 /benchmark/fixtures
 /examples/**/dist
 /coverage
+/.firebase
+.firebaserc
+firebase.json
 .DS_Store
 *.log
 .idea
