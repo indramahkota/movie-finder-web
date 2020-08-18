@@ -28,7 +28,10 @@ module.exports = {
       },
       {
         test: /\.html$/i,
-        use: ["html-loader"]
+        loader: "html-loader",
+        options: {
+          minimize: true
+        }
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -47,7 +50,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/template.html",
-      filename: "index.html"
+      filename: "index.html",
+      minify: { collapseWhitespace: true, removeComments: true }
     })
   ]
 };

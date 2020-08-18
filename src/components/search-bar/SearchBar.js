@@ -1,6 +1,6 @@
-import css from "./style.css";
-import html from "./template.html";
-import componentTemplateFactory from "../utilities/componentTemplateFactory";
+import css from "./SearchBar.css";
+import html from "./SearchBar.html";
+import componentTemplateFactory from "../componentTemplateFactory";
 
 const template = componentTemplateFactory(html, css);
 

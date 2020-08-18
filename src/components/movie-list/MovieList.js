@@ -1,7 +1,7 @@
-import "../movie-item";
-import css from "./style.css";
-import html from "./template.html";
-import componentTemplateFactory from "../utilities/componentTemplateFactory";
+import MovieItem from "../movie-item/MovieItem.js";
+import css from "./MovieList.css";
+import html from "./MovieList.html";
+import componentTemplateFactory from "../componentTemplateFactory";
 
 const template = componentTemplateFactory(html, css);
 

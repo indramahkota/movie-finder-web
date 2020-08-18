@@ -1,8 +1,5 @@
-// movie-list component
-import '../component/movie-list';
-
-// search-bar component
-import '../component/search-bar';
+import '../components/movie-list/MovieList.js';
+import '../components/search-bar/SearchBar.js';
 
 import DataSource from '../data/data-source.js';
 

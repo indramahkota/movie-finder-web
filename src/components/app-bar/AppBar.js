@@ -1,6 +1,6 @@
-import css from "./style.css";
-import html from "./template.html";
-import componentTemplateFactory from "../utilities/componentTemplateFactory";
+import css from "./AppBar.css";
+import html from "./AppBar.html";
+import componentTemplateFactory from "../componentTemplateFactory";
 
 const template = componentTemplateFactory(html, css);
 

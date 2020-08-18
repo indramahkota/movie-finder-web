@@ -1,18 +1,13 @@
 import "regenerator-runtime";
 import "./styles/style.css";
 
-// app-bar component
-import "./script/component/app-bar";
+import "./components/app-bar/AppBar.js";
+import "./components/card-item/CardItem.js";
+import "./components/side-bar/SideBar.js";
 
-// card-item component
-import "./script/component/card-item";
-
-// side-bar component
-import "./script/component/side-bar";
-
-import main from "./script/view/main.js";
-import settings from "./script/view/settings.js";
-import about from "./script/view/about.js";
+import main from "./views/main.js";
+import settings from "./views/settings.js";
+import about from "./views/about.js";
 
 const sidebar = document.querySelector("side-bar");
 const appbar = document.querySelector("app-bar");

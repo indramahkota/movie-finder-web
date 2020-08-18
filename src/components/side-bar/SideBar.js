@@ -1,13 +1,13 @@
-import bgProfileImg from '../../../images/menu/bg_profile.png';
-import indraImg from '../../../images/menu/indra.png';
-import homeImg from '../../../images/menu/home.png';
-import infoImg from '../../../images/menu/info.png';
-import logoutImg from '../../../images/menu/logout.png';
-import settingsImg from '../../../images/menu/settings.png';
+import bgProfileImg from '../../assets/images/menu/bg_profile.png';
+import indraImg from '../../assets/images/menu/indra.png';
+import homeImg from '../../assets/images/menu/home.png';
+import infoImg from '../../assets/images/menu/info.png';
+import logoutImg from '../../assets/images/menu/logout.png';
+import settingsImg from '../../assets/images/menu/settings.png';
 
-import css from "./style.css";
-import html from "./template.html";
-import componentTemplateFactory from "../utilities/componentTemplateFactory";
+import css from "./SideBar.css";
+import html from "./SideBar.html";
+import componentTemplateFactory from "../componentTemplateFactory";
 
 const template = componentTemplateFactory(html, css);
 

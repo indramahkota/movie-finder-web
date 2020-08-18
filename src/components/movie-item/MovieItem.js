@@ -1,6 +1,6 @@
-import css from "./style.css";
-import html from "./template.html";
-import componentTemplateFactory from "../utilities/componentTemplateFactory";
+import css from "./MovieItem.css";
+import html from "./MovieItem.html";
+import componentTemplateFactory from "../componentTemplateFactory";
 
 const template = componentTemplateFactory(html, css);
 
