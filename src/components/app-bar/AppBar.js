@@ -11,11 +11,6 @@ class AppBar extends HTMLElement {
         this.render();
     }
 
-    set menuClickEvent(event) {
-        this._menuClickEvent = event;
-        this.render();
-    }
-
     connectedCallback() {
         this.attachShadow({mode: "open"});
         this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -26,7 +21,6 @@ class AppBar extends HTMLElement {
 
     render() {
         this.shadowRoot.querySelector("#menuText").textContent = this._textMenu;
-        this.shadowRoot.querySelector("#menuButton").addEventListener("click", this._menuClickEvent);
     }
 }
 
