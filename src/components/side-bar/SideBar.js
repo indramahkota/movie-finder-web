@@ -1,15 +1,14 @@
-import bgProfileImg from '../../assets/images/menu/bg_profile.png';
-import indraImg from '../../assets/images/menu/indra.png';
-import homeImg from '../../assets/images/menu/home.png';
-import infoImg from '../../assets/images/menu/info.png';
-import logoutImg from '../../assets/images/menu/logout.png';
-import settingsImg from '../../assets/images/menu/settings.png';
-
+import bgProfileImg from '../../assets/images/bg_profile.png';
+import indraImg from '../../assets/images/indra.png';
+import homeImg from '../../assets/images/home.png';
+import infoImg from '../../assets/images/info.png';
+import logoutImg from '../../assets/images/logout.png';
+import settingsImg from '../../assets/images/settings.png';
 import css from "./SideBar.css";
 import html from "./SideBar.html";
-import componentTemplateFactory from "../componentTemplateFactory";
+import templateFactory from "../templateFactory";
 
-const template = componentTemplateFactory(html, css);
+const template = templateFactory(html, css);
 
 class SideBar extends HTMLElement {
 

@@ -1,8 +1,8 @@
 import css from "./CardItem.css";
 import html from "./CardItem.html";
-import componentTemplateFactory from "../componentTemplateFactory";
+import templateFactory from "../templateFactory";
 
-const template = componentTemplateFactory(html, css);
+const template = templateFactory(html, css);
 
 class CardItem extends HTMLElement {
     

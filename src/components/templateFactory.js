@@ -1,4 +1,4 @@
-const componentTemplateFactory = (html, css) => {
+const templateFactory = (html, css) => {
     const template = document.createElement("template");
     template.innerHTML  = `
         <style>
@@ -9,4 +9,4 @@ const componentTemplateFactory = (html, css) => {
     return template;
 };
 
-export default componentTemplateFactory;
+export default templateFactory;

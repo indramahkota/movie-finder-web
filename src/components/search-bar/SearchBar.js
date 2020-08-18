@@ -1,8 +1,8 @@
 import css from "./SearchBar.css";
 import html from "./SearchBar.html";
-import componentTemplateFactory from "../componentTemplateFactory";
+import templateFactory from "../templateFactory";
 
-const template = componentTemplateFactory(html, css);
+const template = templateFactory(html, css);
 
 class SearchBar extends HTMLElement {
 

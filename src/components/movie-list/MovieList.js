@@ -1,9 +1,8 @@
-import MovieItem from "../movie-item/MovieItem.js";
 import css from "./MovieList.css";
 import html from "./MovieList.html";
-import componentTemplateFactory from "../componentTemplateFactory";
+import templateFactory from "../templateFactory";
 
-const template = componentTemplateFactory(html, css);
+const template = templateFactory(html, css);
 
 class MovieList extends HTMLElement {
 

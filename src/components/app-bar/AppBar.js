@@ -1,8 +1,8 @@
 import css from "./AppBar.css";
 import html from "./AppBar.html";
-import componentTemplateFactory from "../componentTemplateFactory";
+import templateFactory from "../templateFactory";
 
-const template = componentTemplateFactory(html, css);
+const template = templateFactory(html, css);
 
 class AppBar extends HTMLElement {
 
