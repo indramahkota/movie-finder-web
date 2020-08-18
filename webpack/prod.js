@@ -1,5 +1,5 @@
 const base = require("./base");
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 

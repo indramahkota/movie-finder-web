@@ -9,6 +9,7 @@
 /examples/**/dist
 /coverage
 /.firebase
+/dist
 .firebaserc
 firebase.json
 .DS_Store
