@@ -5,7 +5,6 @@ import templateFactory from "../templateFactory";
 const template = templateFactory(html, css);
 
 class AppBar extends HTMLElement {
-
     set textMenu(text) {
         this._textMenu = text;
         this.render();
@@ -20,7 +19,7 @@ class AppBar extends HTMLElement {
     }
 
     render() {
-        this.shadowRoot.querySelector("#menuText").textContent = this._textMenu;
+        this.shadowRoot.querySelector("#title-text").textContent = this._textMenu;
     }
 }
 

@@ -5,7 +5,6 @@ import templateFactory from "../templateFactory";
 const template = templateFactory(html, css);
 
 class MovieList extends HTMLElement {
-
     set movies(movies) {
         this._movies = movies;
         this.render();

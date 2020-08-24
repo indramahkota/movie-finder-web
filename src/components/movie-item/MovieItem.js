@@ -5,7 +5,6 @@ import templateFactory from "../templateFactory";
 const template = templateFactory(html, css);
 
 class MovieItem extends HTMLElement {
-
     set movie(movie) {
         if(movie.backdrop_path === null) {
             movie.backdrop_path = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";

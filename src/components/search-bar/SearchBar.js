@@ -5,7 +5,6 @@ import templateFactory from "../templateFactory";
 const template = templateFactory(html, css);
 
 class SearchBar extends HTMLElement {
-
     set keyUpEvent(event) {
         this._keyUpEvent = event;
         this.render();
