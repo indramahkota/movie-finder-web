@@ -20,4 +20,5 @@ $ npm install
 $ npm run start
 ```
 
+![alt text](https://drive.google.com/uc?id=13vOp8BEoB8D71LYCXoSsqlbKYRxAUIfT)
 ![alt text](https://drive.google.com/uc?id=1gwBjRCqukxx78Ztc3RPLkGfDrZntRxpz)
