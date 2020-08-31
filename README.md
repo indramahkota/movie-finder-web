@@ -19,3 +19,5 @@ $ npm install
 #Start's development server
 $ npm run start
 ```
+
+![alt text](https://drive.google.com/uc?id=1gwBjRCqukxx78Ztc3RPLkGfDrZntRxpz)
