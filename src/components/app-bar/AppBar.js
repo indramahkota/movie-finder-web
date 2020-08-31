@@ -5,11 +5,6 @@ import templateFactory from "../templateFactory";
 const template = templateFactory(html, css);
 
 class AppBar extends HTMLElement {
-    set textMenu(text) {
-        this._textMenu = text;
-        this.render();
-    }
-
     connectedCallback() {
         this.attachShadow({mode: "open"});
         this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -19,7 +14,25 @@ class AppBar extends HTMLElement {
     }
 
     render() {
-        this.shadowRoot.querySelector("#title-text").textContent = this._textMenu;
+        this.shadowRoot.querySelector("#header-title").textContent = this._textMenu;
+
+        if(window.localStorage.getItem('app-dark-mode') === 'dark') {
+            this.shadowRoot.querySelector("#header-switch").checked = false;
+        } else {
+            this.shadowRoot.querySelector("#header-switch").checked = true;
+        }
+
+        this.shadowRoot.querySelector("#header-switch").addEventListener('change', this.toggleDarkMode);
+    }
+
+    toggleDarkMode(event) {
+        if(event.path[0].checked) {
+            window.document.body.classList.remove('dark');
+            window.localStorage.setItem('app-dark-mode', "light");
+        } else {
+            window.document.body.classList.add('dark');
+            window.localStorage.setItem('app-dark-mode', "dark");
+        }
     }
 }
 

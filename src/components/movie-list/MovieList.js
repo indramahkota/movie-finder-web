@@ -11,7 +11,7 @@ class MovieList extends HTMLElement {
     }
 
     connectedCallback() {
-        this.attachShadow({mode: "open"});
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
@@ -25,7 +25,10 @@ class MovieList extends HTMLElement {
     }
 
     renderError(message) {
-        this.shadowRoot.querySelector(".placeholder").innerHTML = message;
+        this.shadowRoot.querySelector(".placeholder").innerHTML = "";
+        const movieItemElement = document.createElement("movie-item");
+        this.shadowRoot.querySelector(".placeholder").appendChild(movieItemElement);
+        movieItemElement.movie = { isError: true, errMessage: message };
     }
 }
 

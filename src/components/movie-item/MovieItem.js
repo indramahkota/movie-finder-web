@@ -12,6 +12,11 @@ class MovieItem extends HTMLElement {
             movie.backdrop_path = `https://image.tmdb.org/t/p/w500//${movie.backdrop_path}`;
         }
         this._movie = movie;
+
+        if(movie.isError) {
+            this.renderError();
+            return;
+        }
         this.render();
     }
 
@@ -20,11 +25,16 @@ class MovieItem extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
-
     render() {
         this.shadowRoot.querySelector("img").src = this._movie.backdrop_path;
         this.shadowRoot.querySelector("h2").textContent = this._movie.title;
         this.shadowRoot.querySelector("p").textContent = this._movie.overview;
+    }
+
+    renderError() {
+        this.shadowRoot.querySelector("img").style.display = 'none';
+        this.shadowRoot.querySelector("p").style.display = 'none';
+        this.shadowRoot.querySelector("h2").textContent = this._movie.errMessage;
     }
 }
 

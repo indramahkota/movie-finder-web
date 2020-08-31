@@ -1,12 +1,13 @@
 .search-container {
-  max-width: 800px;
+  max-width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
   border-radius: 5px;
   display: flex;
-  position: sticky;
-  top: 10px;
-  background-color: white;
+  background-color: var(--color-article-background);
 }
 .search-container > input {
   width: 75%;
