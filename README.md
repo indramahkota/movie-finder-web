@@ -20,5 +20,5 @@ $ npm install
 $ npm run start
 ```
 
-![Movie Finder Light Mode](https://drive.google.com/uc?id=1f738-JtDUUwCu3Q70rAIY5-S4UOHk8ev)
-![Movie Finder Dark Mode](https://drive.google.com/uc?id=19jCfFh9YlcJvACSTakZ6G97JcvhM-Hob)
+![Movie Finder Light Mode](https://raw.githubusercontent.com/indramahkota/indramahkota.github.io/master/assets/githubs/moviefinder1-min.PNG)
+![Movie Finder Dark Mode](https://raw.githubusercontent.com/indramahkota/indramahkota.github.io/master/assets/githubs/moviefinder2-min.PNG)
