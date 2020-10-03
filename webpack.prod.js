@@ -11,50 +11,47 @@ module.exports = merge(common, {
     maxAssetSize: 900000
   },
   optimization: {
-    minimize: true,
     minimizer: [
       new TerserPlugin({
-        test: /\.m?js$/,
         terserOptions: {
-          output: {
-            comments: false
-          },
           compress: {
             drop_console: true
-          }
+          },
+          mangle: true
         },
-        extractComments: false
+        sourceMap: false,
+        extractComments: true
       }),
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.css$/g,
-        cssProcessor: require("cssnano"),
+        cssProcessor: require('cssnano'),
         cssProcessorPluginOptions: {
-          preset: ["default", { discardComments: { removeAll: true } }]
+          preset: ['default', { discardComments: { removeAll: true } }],
         },
         canPrint: true
-      }),
-      splitChunks: {
-        chunks: 'all',
-        minSize: 20000,
-        maxSize: 70000,
-        minChunks: 1,
-        maxAsyncRequests: 30,
-        maxInitialRequests: 30,
-        automaticNameDelimiter: '~',
-        enforceSizeThreshold: 50000,
-        cacheGroups: {
-          defaultVendors: {
-            test: /[\\/]node_modules[\\/]/,
-            priority: -10
-          },
-          default: {
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true
-          }
+      })
+    ],
+    splitChunks: {
+      chunks: 'all',
+      minSize: 20000,
+      maxSize: 70000,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: '~',
+      enforceSizeThreshold: 50000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
         }
       }
-    ]
+    }
   },
   module: {
     rules: [
