@@ -5,13 +5,18 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: resolve(__dirname, "src/index.js"),
   output: {
-    path: resolve(__dirname, "../dist"),
+    path: resolve(__dirname, "dist"),
     filename: "[name].[contenthash:8].js",
   },
   mode: "development",
   devtool: "eval-source-map",
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
       /* rules component style */
       {
         test: /\.css$/i,

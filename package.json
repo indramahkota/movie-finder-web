@@ -4,7 +4,7 @@
   "description": "Belajar Fundamental Front-End Web Development: Club Finder (Js)",
   "main": "src/index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js ",
+    "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js --open"
   },
   "repository": {
