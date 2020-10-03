@@ -1,15 +1,12 @@
-const path = require("path");
+const { resolve } = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: {
-    polyfill: "babel-polyfill",
-    index: './src/index.js'
-  },
+  entry: resolve(__dirname, "src/index.js"),
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "[name].[contenthash].js",
+    path: resolve(__dirname, "../dist"),
+    filename: "[name].[contenthash:8].js",
   },
   mode: "development",
   devtool: "eval-source-map",

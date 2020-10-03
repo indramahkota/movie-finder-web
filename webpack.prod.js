@@ -1,9 +1,9 @@
-const base = require("./base");
 const { merge } = require("webpack-merge");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const common = require('./webpack.common');
 
-module.exports = merge(base, {
+module.exports = merge(common, {
   mode: "production",
   devtool: false,
   performance: {
@@ -32,7 +32,28 @@ module.exports = merge(base, {
           preset: ["default", { discardComments: { removeAll: true } }]
         },
         canPrint: true
-      })
+      }),
+      splitChunks: {
+        chunks: 'all',
+        minSize: 20000,
+        maxSize: 70000,
+        minChunks: 1,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 30,
+        automaticNameDelimiter: '~',
+        enforceSizeThreshold: 50000,
+        cacheGroups: {
+          defaultVendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
+          }
+        }
+      }
     ]
   },
   module: {
