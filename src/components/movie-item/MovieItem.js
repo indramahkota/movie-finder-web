@@ -9,7 +9,7 @@ class MovieItem extends HTMLElement {
         if(movie.backdrop_path === null) {
             movie.backdrop_path = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
         } else {
-            movie.backdrop_path = `https://image.tmdb.org/t/p/w500//${movie.backdrop_path}`;
+            movie.backdrop_path = `https://image.tmdb.org/t/p/w342//${movie.backdrop_path}`;
         }
         this._movie = movie;
 
